@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/stefanpenner/ember-cli",
+  "repository": "https://github.com/taras/ember-cli-topcoat.git",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -27,7 +27,14 @@
     "ember-cli-qunit": "0.1.0",
     "ember-data": "1.0.0-beta.10",
     "express": "^4.8.5",
-    "glob": "^4.0.5"
+    "glob": "^4.0.5",
+    "broccoli-static-compiler": "^0.1.4",
+    "grunt-cli": "^0.1.13",
+    "grunt": "^0.4.5",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-bump": "0.0.15",
+    "grunt-broccoli": "^0.3.6",
+    "grunt-shell": "^1.1.1"
   },
   "keywords": [
     "ember-addon"
@@ -36,7 +43,6 @@
     "configPath": "tests/dummy/config"
   },
   "dependencies": {
-    "topcoat": "^0.7.5",
-    "broccoli-static-compiler": "^0.1.4"
+    "topcoat": "^0.7.5"
   }
 }

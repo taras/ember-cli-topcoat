@@ -365,7 +365,7 @@ select.docNav {
     height: auto;
   }
   #sideNav nav.site {
-    display: none;
+    display: block;
   }
   #sideNav .combo {
     border-bottom: none;
@@ -505,5 +505,10 @@ select.docNav {
   }
 }
 
+td.line-number {
+  display: none;
+}
 
-
+.rainbow .line:hover {
+  background: none;
+}

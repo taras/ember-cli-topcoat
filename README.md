@@ -1,6 +1,6 @@
-# Ember-cli-topcoat
+# Ember-CLI Addon for [Topcoat](http://topcoat.io)
 
-This README outlines the details of collaborating on this Ember addon.
+Topcoat - CSS for clean and fast web apps. 
 
 ## Installation
 

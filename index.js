@@ -109,9 +109,12 @@ module.exports = {
         app.import(desktop);
       }
 
-      if (app.env === 'development') {
+      if (app.env === 'development' || process.env.DIST) {
         app.import('vendor/topcoat/demo/css/main.css');
         app.import('vendor/topcoat/demo/css/brackets.css');
+        app.import('vendor/topcoat/demo/css/theme.css');
+        app.import('vendor/topcoat/demo/js/rainbow-custom.min.js');
+        app.import('vendor/topcoat/demo/js/rainbow.linenumbers.min.js');
       }
 
       if (options.fonts) {
