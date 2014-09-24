@@ -12,6 +12,21 @@ module.exports = function(grunt){
       dist: {
         command: 'DIST=true ./node_modules/.bin/ember build dist --env=production'
       }
+    },
+    bump: {
+      options: {
+        files: ['package.json'],
+        updateConfigs: [],
+        commit: true,
+        commitMessage: 'Release %VERSION%',
+        commitFiles: ['package.json'],
+        createTag: true,
+        tagName: '%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'master',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+      }
     }
   });
 
