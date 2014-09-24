@@ -1,6 +1,5 @@
 var path = require('path');
 var fs   = require('fs');
-var pickFiles = require('broccoli-static-compiler');
 
 module.exports = {
   name: 'ember-cli-topcoat',
