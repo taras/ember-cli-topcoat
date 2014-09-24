@@ -30,8 +30,12 @@ module.exports = {
 
     return addon;
   },
-  included: function included(app) {
-    this.app = app;
+  afterInstall: function(options) {
+    return this.addBowerPackageToProject('topcoat', '0.8.0');
+  },
+  included: function topcoat_included(app) {
+    this._super.included(app);
+
     var options = this.app.options.topcoatOptions || {
         enabled: true,
         mobile: false,
@@ -40,10 +44,11 @@ module.exports = {
         images: true
       };
 
+
     var theme = options.dark ? 'dark' : 'light';
 
-    var desktop = 'vendor/topcoat/css/topcoat-desktop-' + theme + '.css';
-    var mobile = 'vendor/topcoat/css/topcoat-mobile-' + theme + '.css';
+    var desktop = app.bowerDirectory + '/topcoat/css/topcoat-desktop-' + theme + '.css';
+    var mobile = app.bowerDirectory + '/topcoat/css/topcoat-mobile-' + theme + '.css';
 
     var fonts = [
       'SourceCodePro-Black.otf',
@@ -110,22 +115,22 @@ module.exports = {
       }
 
       if (app.env === 'development' || process.env.DIST) {
-        app.import('vendor/topcoat/demo/css/main.css');
-        app.import('vendor/topcoat/demo/css/brackets.css');
-        app.import('vendor/topcoat/demo/css/theme.css');
-        app.import('vendor/topcoat/demo/js/rainbow-custom.min.js');
-        app.import('vendor/topcoat/demo/js/rainbow.linenumbers.min.js');
+        app.import(app.bowerDirectory + '/topcoat/demo/css/main.css');
+        app.import(app.bowerDirectory + '/topcoat/demo/css/brackets.css');
+        app.import(app.bowerDirectory + '/topcoat/demo/css/theme.css');
+        app.import(app.bowerDirectory + '/topcoat/demo/js/rainbow-custom.min.js');
+        app.import(app.bowerDirectory + '/topcoat/demo/js/rainbow.linenumbers.min.js');
       }
 
       if (options.fonts) {
         fonts.forEach(function(font){
-          app.import('vendor/topcoat/font/'+font, { destDir: "font" });
+          app.import(app.bowerDirectory + '/topcoat/font/'+font, { destDir: "font" });
         });
       }
 
       if (options.images) {
         images.forEach(function(image){
-          app.import('vendor/topcoat/img/'+image, { destDir: "img" });
+          app.import(app.bowerDirectory + '/topcoat/img/'+image, { destDir: "img" });
         });
       }
     }
