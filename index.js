@@ -4,32 +4,6 @@ var pickFiles = require('broccoli-static-compiler');
 
 module.exports = {
   name: 'ember-cli-topcoat',
-  treeFor: function treeFor(name) {
-    if (name !== 'vendor') { return; }
-
-    var treePath = path.join('node_modules', 'ember-cli-topcoat', 'node_modules', 'topcoat');
-
-    var addon;
-
-    if (fs.existsSync(treePath)) {
-      addon = pickFiles(treePath, {
-        srcDir: '/',
-        destDir: '/topcoat'
-      });
-    }
-
-    if (typeof addon === 'undefined') {
-      treePath = path.join(__dirname, 'node_modules', 'topcoat');
-      if (fs.existsSync(treePath)) {
-        addon = pickFiles(treePath, {
-          srcDir: '/',
-          destDir: '/topcoat'
-        });
-      }
-    }
-
-    return addon;
-  },
   afterInstall: function(options) {
     return this.addBowerPackageToProject('topcoat', '0.8.0');
   },

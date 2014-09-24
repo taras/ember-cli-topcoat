@@ -41,8 +41,5 @@
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  },
-  "dependencies": {
-    "topcoat": "^0.7.5"
   }
 }
