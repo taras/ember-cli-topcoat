@@ -2,12 +2,13 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   didInsertElement: function() {
+    /* jshint ignore:start */
     var showCodeDivs = document.getElementsByClassName('showcode');
     for (var i = showCodeDivs.length - 1; i >= 0; i--) {
       showCodeDivs[i].firstChild.onclick = function(e) {
         var element = e.target.parentNode.nextSibling.nextSibling;
         var style = window.getComputedStyle(element);
-        if(style.getPropertyValue('display') == 'none'){
+        if(style.getPropertyValue('display') === 'none'){
           e.target.innerHTML = 'Hide code snippets';
           element.style.display = 'block';
         } else {
@@ -16,7 +17,7 @@ export default Ember.View.extend({
         }
         return false;
       };
-    };
+    }
     var slideMenuButton = document.getElementById('slide-menu-button');
     slideMenuButton.onclick = function(e) {
       var site = document.getElementById('site');
@@ -43,6 +44,7 @@ export default Ember.View.extend({
           cl.remove('open');
         }
       };
-    };
+    }
+    /* jshint ignore:end */
   }
 });
