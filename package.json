@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-topcoat",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "directories": {
     "doc": "doc",
     "test": "tests"
